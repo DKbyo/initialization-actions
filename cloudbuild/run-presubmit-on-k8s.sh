@@ -8,7 +8,7 @@ readonly DATAPROC_IMAGE_VERSION=$3
 
 readonly POD_NAME=presubmit-${DATAPROC_IMAGE_VERSION//./-}-${BUILD_ID//_/-}
 
-gcloud container clusters get-credentials "${CLOUDSDK_CONTAINER_CLUSTER}"
+gcloud container clusters get-credentials "${CLOUDSDK_CONTAINER_CLUSTER}" --zone us-central1-a
 
 kubectl run "${POD_NAME}" --generator=run-pod/v1 --image="$IMAGE" \
   --pod-running-timeout=10m \
