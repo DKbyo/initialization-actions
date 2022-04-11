@@ -209,7 +209,10 @@ EOF
   /usr/lib/hue/build/env/bin/hue migrate
 
   # Restart Hadoop services and Hue
-  systemctl restart hadoop-hdfs-namenode hadoop-yarn-resourcemanager hue
+  systemctl restart hadoop-hdfs-namenode hadoop-yarn-resourcemanager
+
+  # Start Hue
+  systemctl start hue
 }
 
 # Only run on the master node ("0"-master in HA mode) of the cluster
